@@ -2,7 +2,8 @@ package com.bridzlabs;
 
 import java.util.*;
 
-public class Addressbook extends Contact{
+public class Addressbook extends Contact {
+
     ArrayList<Contact> al1 = new ArrayList();
 
     Scanner scan = new Scanner(System.in);
@@ -68,9 +69,7 @@ public class Addressbook extends Contact{
         }
         if (contact != null) {
 
-            System.out.println("Enter your choice what you want to edit in contact edit press"
-                    + " \n 1.PhoneNo \n 2.Firstname \n 3.Lastname \n 4.Address \n 5.City \n "
-                    + "6.State \n 7. Email \n 8.ZipCode ");
+            System.out.println("Enter your choice what you want to edit in contact edit press" + " \n 1.PhoneNo \n 2.Firstname \n 3.Lastname \n 4.Address \n 5.City \n " + "6.State \n 7. Email \n 8.ZipCode ");
 
             int ch = scan.nextInt();
             switch (ch) {
@@ -125,6 +124,36 @@ public class Addressbook extends Contact{
         } else {
             System.out.println("Name not found ");
 
+        }
+
+    }
+
+    void print() {
+
+        Iterator itr1 = al1.iterator();
+        while (itr1.hasNext()) {
+            System.out.println(itr1.next());
+        }
+    }
+
+    void deleteContact() {
+
+        Contact contact = new Contact();
+
+        System.out.println("Enter the Contact name which you want to delete  ");
+        String name = scan.next();
+
+        for (int i = 0; i < al1.size(); i++) {
+            if (al1.get(i).getFirstname().equals(name)) {
+                // al1.remove(contact);
+                al1.remove(i);
+            }
+        }
+        System.out.println("Address book after deleting contact ");
+
+        Iterator itr1 = al1.iterator();
+        while (itr1.hasNext()) {
+            System.out.println(itr1.next());
         }
     }
 }
